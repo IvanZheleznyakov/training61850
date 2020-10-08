@@ -11,7 +11,7 @@ namespace test61850frm
         int EncodeTL(byte tag, uint length, ref byte[] buffer, int bufPos);
         int EncodeBoolean(byte tag, bool value, ref byte[] buffer, int bufPos);
         int EncodeStringWithTag(byte tag, string encodingString, ref byte[] buffer, int bufPos);
-        int EncodeAsn1PrimitiveValue(byte tag, Asn1PrimitiveValue value, ref byte[] buffer, int bufPos);
+        int EncodeAsn1PrimitiveValue(byte tag, Asn1PrimitiveVal value, ref byte[] buffer, int bufPos);
         int EncodeOctetString(byte tag, byte[] octetString, uint octetStringSize, ref byte[] buffer, int bufPos);
         int EncodeBitString(byte tag, int bitStringSize, byte[] bitString, ref byte[] buffer, int bufPos);
         int DetermineEncodedBitStringSize(int bitStringSize);
@@ -206,7 +206,7 @@ namespace test61850frm
         /// <param name="buffer">Байтовый буфер</param>
         /// <param name="bufPos">Позиция в буфере, с которой записывается длина</param>
         /// <returns>Позиция в буфере после записанной длины</returns>
-        public int EncodeAsn1PrimitiveValue(byte tag, Asn1PrimitiveValue value, ref byte[] buffer, int bufPos)
+        public int EncodeAsn1PrimitiveValue(byte tag, Asn1PrimitiveVal value, ref byte[] buffer, int bufPos)
         {
             buffer[bufPos++] = tag;
 

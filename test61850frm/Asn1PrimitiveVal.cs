@@ -12,7 +12,7 @@ namespace test61850frm
     }
 
     /// <summary>
-    /// Информация в формате ASN.1 /*временное название, чтобы не было конфликта имен  */
+    /// Информация в формате ASN.1 /*временное название, чтобы не было конфликта имен*/
     /// </summary>
     [ComVisible(true)]
     [ClassInterface(ClassInterfaceType.None)]
