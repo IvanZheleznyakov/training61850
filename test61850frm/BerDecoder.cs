@@ -7,10 +7,15 @@ using System.Threading.Tasks;
 
 namespace test61850frm
 {
-   /* [ComVisible(true)]
-    [Guid("643DC85F-BA85-4C8D-8162-4E869ED8E8A1"), ClassInterface(ClassInterfaceType.AutoDual)]
+    //[ComVisible(true)]
+    //[Guid("643DC85F-BA85-4C8D-8162-4E869ED8E8A1"), ClassInterface(ClassInterfaceType.AutoDual)]
     public class BerDecoder
     {
+        public int TestMethod(string str)
+        {
+            return str.Length;
+        }
+
         public int DecodeLength(ref byte[] buffer, ref int[] length, int bufPos, int maxBufPos)
         {
             if (bufPos >= maxBufPos)
@@ -26,7 +31,7 @@ namespace test61850frm
 
                 if (lenLength == 0)
                 { /* indefinite length form */
-                 /*   length[0] = -1;
+                    length[0] = -1;
                 }
                 else
                 {
@@ -66,5 +71,5 @@ namespace test61850frm
 
             return bufPos;
         }
-    }*/
+    }
 }

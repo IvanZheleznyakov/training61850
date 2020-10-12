@@ -4,30 +4,6 @@ using System.Text;
 
 namespace test61850frm
 {
-    [ComVisible(true)]
-    public interface IBerEncoder
-    {
-        int EncodeLength(uint length, ref byte[] buffer, int bufPos);
-        int EncodeTL(byte tag, uint length, ref byte[] buffer, int bufPos);
-        int EncodeBoolean(byte tag, bool value, ref byte[] buffer, int bufPos);
-        int EncodeStringWithTag(byte tag, string encodingString, ref byte[] buffer, int bufPos);
-        int EncodeAsn1PrimitiveValue(byte tag, Asn1PrimitiveVal value, ref byte[] buffer, int bufPos);
-        int EncodeOctetString(byte tag, byte[] octetString, uint octetStringSize, ref byte[] buffer, int bufPos);
-        int EncodeBitString(byte tag, int bitStringSize, byte[] bitString, ref byte[] buffer, int bufPos);
-        int DetermineEncodedBitStringSize(int bitStringSize);
-        void RevertByteOrder(ref byte[] octets, int size);
-        int CompressInteger(ref byte[] integer, int originalSize);
-        int EncodeUInt32(uint value, ref byte[] buffer, int bufPos);
-        int EncodeInt32(int value, ref byte[] buffer, int bufPos);
-        int EncodeUInt32WithTL(byte tag, uint value, ref byte[] buffer, int bufPos);
-        int EncodeFloat(byte[] floatValue, byte formatWidth, byte exponentWidth,
-        ref byte[] buffer, int bufPos);
-        int UInt32determineEncodedSize(uint value);
-        int DetermineLengthSize(uint length);
-        int DetermineEncodedStringSize(string encodingString);
-        int EncodeOIDToBuffer(string oidString, ref byte[] buffer, int maxBufLen);
-    }
-
     /// <summary>
     /// Класс, который предоставляет методы BER-кодирования 
     /// </summary>
@@ -113,32 +89,32 @@ namespace test61850frm
         public int EncodeTL(byte tag, uint length, ref byte[] buffer, int bufPos)
         {
             buffer[bufPos++] = tag;
-            bufPos = EncodeLengthHELP(length, ref buffer, bufPos);
+            //    bufPos = EncodeLengthHELP(length, ref buffer, bufPos);
             //begin encodelength
-            //if (length < 128)
-            //{
-            //    buffer[bufPos++] = (byte)length;
-            //}
-            //else if (length < 256)
-            //{
-            //    buffer[bufPos++] = 0x81;
-            //    buffer[bufPos++] = (byte)length;
-            //}
-            //else if (length < 65535)
-            //{
-            //    buffer[bufPos++] = 0x82;
+            if (length < 128)
+            {
+                buffer[bufPos++] = (byte)length;
+            }
+            else if (length < 256)
+            {
+                buffer[bufPos++] = 0x81;
+                buffer[bufPos++] = (byte)length;
+            }
+            else if (length < 65535)
+            {
+                buffer[bufPos++] = 0x82;
 
-            //    buffer[bufPos++] = (byte)(length / 256);
-            //    buffer[bufPos++] = (byte)(length % 256);
-            //}
-            //else
-            //{
-            //    buffer[bufPos++] = 0x83;
+                buffer[bufPos++] = (byte)(length / 256);
+                buffer[bufPos++] = (byte)(length % 256);
+            }
+            else
+            {
+                buffer[bufPos++] = 0x83;
 
-            //    buffer[bufPos++] = (byte)(length / 0x10000);
-            //    buffer[bufPos++] = (byte)((length & 0xffff) / 0x100);
-            //    buffer[bufPos++] = (byte)(length % 256);
-            //}
+                buffer[bufPos++] = (byte)(length / 0x10000);
+                buffer[bufPos++] = (byte)((length & 0xffff) / 0x100);
+                buffer[bufPos++] = (byte)(length % 256);
+            }
             //end encodelength
 
             return bufPos;
