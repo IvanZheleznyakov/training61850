@@ -11,5 +11,16 @@ namespace test61850frm
         public byte[] Buffer { get; set; }
         public int MaxSize { get; set; }
         public int Size { get; set; }
+
+        public int Append(byte[] data, int dataSize)
+        {
+            if (Size + dataSize <= MaxSize)
+            {
+                Buffer = (byte[])Buffer.Concat(data);
+                return dataSize;
+            }
+
+            return -1;
+        }
     }
 }
