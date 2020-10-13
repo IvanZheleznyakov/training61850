@@ -26,7 +26,7 @@ namespace test61850frm
             if (Size + dataSize <= MaxSize)
             {
                 Buffer = Buffer.Concat(data).ToArray(); // TODO поменять реализацию, эта должна быть медленной
-                Size += dataSize;
+                Size += dataSize;                           // на больших размерах
                 return dataSize;
             }
 
