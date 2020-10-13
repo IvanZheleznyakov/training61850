@@ -9,7 +9,7 @@ namespace test61850frm
 {
     [ComVisible(true)]
     [ClassInterface(ClassInterfaceType.None)]
-    public class ByteBuffer
+    public class ByteBufferNET
     {
         public byte[] Buffer { get; set; }
         public int MaxSize { get; set; }
@@ -25,7 +25,7 @@ namespace test61850frm
         {
             if (Size + dataSize <= MaxSize)
             {
-                Buffer = Buffer.Concat(data).ToArray();
+                Buffer = Buffer.Concat(data).ToArray(); // TODO поменять реализацию, эта должна быть медленной
                 Size += dataSize;
                 return dataSize;
             }
