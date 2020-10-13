@@ -11,7 +11,7 @@ namespace test61850frm
     [ClassInterface(ClassInterfaceType.None)]
     public class ByteBufferNET
     {
-        public delegate int Asn_app_consume_bytes_fNET(object[] buffer, UIntPtr size, object application_specific_key);
+        public delegate int Asn_app_consume_bytes_fNET(object[] buffer, long size, object application_specific_key);
 
         public byte[] Buffer { get; set; }
         public int MaxSize { get; set; }
