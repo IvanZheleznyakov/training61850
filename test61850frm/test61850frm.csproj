@@ -89,6 +89,11 @@
     <Compile Include="Asn1PrimitiveVal.cs" />
     <Compile Include="BerDecoder.cs" />
     <Compile Include="BerEncoder.cs" />
+    <Compile Include="ByteBuffer.cs" />
+    <Compile Include="DerEncoder.cs" />
+    <Compile Include="IAsn1PrimitiveValue.cs" />
+    <Compile Include="IBerEncoder.cs" />
+    <Compile Include="IDerEncoder.cs" />
     <Compile Include="MmsDataParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
