@@ -21,10 +21,21 @@ namespace test61850frm
                                                                 object bufPtr, /*sizet*/ long size,
                                                                 int tagMode);
 
+        public delegate Asn_enc_rval_tNET der_type_encoder_FNET(Asn_TYPE_descriptor_tNET typeDescriptor,
+                                                                object structPtr, int tagMode,
+                                                                uint tag,
+                                                                asn_app_consume_bytes_fNET consume_Bytes,
+                                                                object appKey);
+
+        public delegate Asn_dec_rval_tNET xer_type_decoder_fNET(Asn_codec_ctx_tNET opt_codex_ctx,
+                                                                Asn_TYPE_descriptor_tNET typeDescriptor,
+                                                                object structPtr, string optName,
+                                                                object bufPtr, /*szt*/long size);
 
         public asn_struct_print_fNET PrintStruct { get; set; }
-         
-
+        public ber_type_decoder_fNET BerDecoder { get; set; }
+        public der_type_encoder_FNET DerEncoder { get; set; }
+        public xer_type_decoder_fNET XerDecoder { get; set; }
 
 
         public string Name { get; set; }
