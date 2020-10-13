@@ -25,7 +25,7 @@ namespace test61850frm
 
         public Asn_per_constraints_tNET PerConstraints { get; set; } 
 
-
+        public Asn_TYPE_member_tNET Elements { get; set; }
         public int ElementsCount { get; set; }
 
         public object Specifics { get; set; }
