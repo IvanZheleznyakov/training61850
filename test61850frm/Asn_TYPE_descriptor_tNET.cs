@@ -16,14 +16,14 @@ namespace test61850frm
                                         object struct_ptr,
                                         int tag_mode, long tag);
 
-        Asn_outmost_tag_fNET outmost_tag;
+        public Asn_outmost_tag_fNET outmost_tag;
 
         public uint[] Tags { get; set; }
         public int TagsCount { get; set; }
         public uint[] AllTags { get; set; }
         public int AllTagsCount { get; set; }
 
-
+        public Asn_per_constraints_tNET PerConstraints { get; set; } 
 
 
         public int ElementsCount { get; set; }
