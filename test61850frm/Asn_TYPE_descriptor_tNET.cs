@@ -44,19 +44,31 @@ namespace test61850frm
                                                                 asn_app_consume_bytes_fNET consumeBytes,
                                                                 object app_key);
 
+        public delegate Asn_dec_rval_tNET per_type_decoder_fNET(Asn_codec_ctx_tNET opt_codex_ctx,
+                                                                Asn_TYPE_descriptor_tNET typeDescriptor,
+                                                                Asn_per_constraints_tNET constraints,
+                                                                object structPtr,
+                                                                Asn_per_data_TNET perData);
+
+        public delegate Asn_enc_rval_tNET per_type_encoder_fNET(Asn_TYPE_descriptor_tNET typeDescriptor,
+                                                                Asn_per_constraints_tNET constraints,
+                                                                object structPtr,
+                                                                Asn_per_outp_tNET perOutput);
+
+        // free struct?
         public asn_struct_print_fNET PrintStruct { get; set; }
         public ber_type_decoder_fNET BerDecoder { get; set; }
         public der_type_encoder_FNET DerEncoder { get; set; }
         public xer_type_decoder_fNET XerDecoder { get; set; }
         public xer_type_encoder_fNET XerEncoder { get; set; }
-
+        public per_type_decoder_fNET PerDecoder { get; set; }
+        public per_type_encoder_fNET PerEncoder { get; set; }
 
 
 
         public string Name { get; set; }
         public string XmlTag { get; set; }
 
-        //TODO en-/de- coders, struct with tags
         public delegate long Asn_outmost_tag_fNET(Asn_TYPE_descriptor_tNET type_descriptor,
                                         object struct_ptr,
                                         int tag_mode, long tag);
