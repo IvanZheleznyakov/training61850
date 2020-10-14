@@ -20,7 +20,14 @@ namespace test61850frm
 													asn_app_constraint_failed_fNET opt_callback,
 													object optional_app_key);
 
-		public Asn_per_constraint_flagsNET Flags { get; set; }	/* Element's presentation flags */
+		public enum Asn_TYPE_flags_eNET
+		{
+			ATF_NOFLAGS_NET,
+			ATF_POINTER_NET = 0x01, /* Represented by the pointer */
+			ATF_OPEN_TYPE_NET = 0x02    /* ANY type, without meaningful tag */
+		};
+
+		public Asn_TYPE_flags_eNET Flags { get; set; }	/* Element's presentation flags */
 		public int Optional { get; set; }   /* Following optional members, including current */
 		public int MembOffset { get; set; }        /* Offset of the element */
 		public uint Tag { get; set; }      /* Outmost (most immediate) tag */

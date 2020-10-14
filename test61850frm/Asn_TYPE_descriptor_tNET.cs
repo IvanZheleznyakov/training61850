@@ -32,7 +32,7 @@ namespace test61850frm
                                                                 object structPtr, string optName,
                                                                 object bufPtr, /*szt*/long size);
 
-        public enum xer_encoder_flags_eNET
+        public enum Xer_encoder_flags_eNET
         {
             XER_F_BASIC_NET = 0x01, /* BASIC-XER (pretty-printing) */
             XER_F_CANONICAL_NET = 0x02	/* Canonical XER (strict rules) */
@@ -40,7 +40,7 @@ namespace test61850frm
 
         public delegate Asn_enc_rval_tNET xer_type_encoder_fNET(Asn_TYPE_descriptor_tNET typeDescriptor,
                                                                 object structPtr, int iLevel,
-                                                                xer_encoder_flags_eNET flags,
+                                                                Xer_encoder_flags_eNET flags,
                                                                 asn_app_consume_bytes_fNET consumeBytes,
                                                                 object app_key);
 
@@ -82,7 +82,7 @@ namespace test61850frm
 
         public Asn_per_constraints_tNET PerConstraints { get; set; } 
 
-        public Asn_TYPE_member_tNET Elements { get; set; }
+        public Asn_TYPE_member_tNET[] Elements { get; set; }
         public int ElementsCount { get; set; }
 
         public object Specifics { get; set; }

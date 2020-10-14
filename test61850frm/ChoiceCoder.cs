@@ -60,8 +60,11 @@ namespace test61850frm
                 return AsnEncodeFailed(td, sptr);
             }
 
+            elm = td.Elements[present - 1];
+            if ((elm.Flags & Asn_TYPE_member_tNET.Asn_TYPE_flags_eNET.ATF_POINTER_NET) > 0)
+            {
 
-
+            }
         }
     }
 }
