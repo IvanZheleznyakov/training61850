@@ -7,7 +7,24 @@ namespace test61850frm
     [ClassInterface(ClassInterfaceType.None)]
     public class DerEncoder: IDerEncoder
     {
-        /*      sszt*/
+        /*     sszt*/
+        public long WriteTL(uint tag, /*sszt*/ long len, asn_app_consume_bytes_fNET cb,
+                            object appKey, int constructed)
+        {
+            byte[] buf = new byte[32];
+            /*szt*/
+            long size = 0;
+            int bufSize;
+            unsafe
+            {
+                bufSize = cb != null ? sizeof(byte) : 0;
+            }
+
+            /*sszt*/
+            long tmp; //todo serialize methods
+        }
+            
+        /*     sszt*/
         public long WriteTags(Asn_TYPE_descriptor_tNET sd, /*szt*/long structLength,
                                 int tagMode, int lastTagForm, uint tag,
                                 asn_app_consume_bytes_fNET cb, object appKey)
