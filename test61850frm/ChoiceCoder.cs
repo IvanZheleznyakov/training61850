@@ -16,6 +16,18 @@ namespace test61850frm
 
         }
 
+        private Asn_enc_rval_tNET AsnEncodeFailed(Asn_TYPE_descriptor_tNET td, object sptr)
+        {
+            Asn_enc_rval_tNET tmpError = new Asn_enc_rval_tNET()
+            {
+                Encoded = -1,
+                FailedType = td,
+                StructurePtr = sptr,
+            };
+
+            return tmpError;
+        }
+
         public Asn_enc_rval_tNET DerEncodeChoice(Asn_TYPE_descriptor_tNET td, object sptr,
                                                 int tagMode, uint tag,
                                                 asn_app_consume_bytes_fNET cb,
@@ -30,15 +42,24 @@ namespace test61850frm
             int present = 0;
             if (sptr == null)
             {
-                Asn_enc_rval_tNET tmpError = new Asn_enc_rval_tNET()
-                {
-                    Encoded = -1,
-                    FailedType = td,
-                    StructurePtr = sptr,
-                };
-
-                return tmpError;
+                return AsnEncodeFailed(td, sptr);
             }
+
+            //TODO present = fetchid
+
+            if (present <= 0 || present > td.ElementsCount)
+            {
+                if (present == 0 && td.ElementsCount == 0)
+                {
+                    erval.Encoded = 0;
+                    erval.StructurePtr = 0;
+                    erval.FailedType = null;
+                    return erval;
+                }
+
+                return AsnEncodeFailed(td, sptr);
+            }
+
 
 
         }
