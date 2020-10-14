@@ -13,6 +13,7 @@ namespace test61850frm
         {
             object presentPtr;
             int present = 0;
+
         }
 
         public Asn_enc_rval_tNET DerEncodeChoice(Asn_TYPE_descriptor_tNET td, object sptr,

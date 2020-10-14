@@ -87,9 +87,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Asn1PrimitiveVal.cs" />
+    <Compile Include="Asn_CHOICE_specifics_tNET.cs" />
+    <Compile Include="Asn_codec_ctx_tNET.cs" />
+    <Compile Include="Asn_dec_rval_tNET.cs" />
+    <Compile Include="Asn_enc_rval_tNET.cs" />
+    <Compile Include="Asn_per_constraints_tNET.cs" />
+    <Compile Include="Asn_per_constraint_tNET.cs" />
+    <Compile Include="Asn_per_data_TNET.cs" />
+    <Compile Include="Asn_per_outp_tNET.cs" />
+    <Compile Include="Asn_TYPE_descriptor_tNET.cs" />
+    <Compile Include="Asn_TYPE_member_tNET.cs" />
+    <Compile Include="Asn_TYPE_tag2member_tNET.cs" />
     <Compile Include="BerDecoder.cs" />
     <Compile Include="BerEncoder.cs" />
-    <Compile Include="ByteBuffer.cs" />
+    <Compile Include="ByteBufferNET.cs" />
+    <Compile Include="ChoiceCoder.cs" />
     <Compile Include="DerEncoder.cs" />
     <Compile Include="IAsn1PrimitiveValue.cs" />
     <Compile Include="IBerEncoder.cs" />
